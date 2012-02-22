@@ -29,7 +29,7 @@ vows.describe('RunKeeperStrategy').addBatch({
       function() {});
       
       // mock
-      strategy._oauth2.getProtectedResource = function(url, accessToken, callback) {
+      strategy._oauth2.get = function(url, accessToken, callback) {
         var body = '{ \
         "userID": 1234567890, \
         "profile": "/profile", \
@@ -71,6 +71,12 @@ vows.describe('RunKeeperStrategy').addBatch({
         assert.equal(profile.provider, 'runkeeper');
         assert.equal(profile.id, '1234567890');
       },
+      'should set raw property' : function(err, profile) {
+        assert.isString(profile._raw);
+      },
+      'should set json property' : function(err, profile) {
+        assert.isObject(profile._json);
+      },
     },
   },
   
@@ -83,7 +89,7 @@ vows.describe('RunKeeperStrategy').addBatch({
       function() {});
       
       // mock
-      strategy._oauth2.getProtectedResource = function(url, accessToken, callback) {
+      strategy._oauth2.get = function(url, accessToken, callback) {
         callback(new Error('something-went-wrong'));
       }
       

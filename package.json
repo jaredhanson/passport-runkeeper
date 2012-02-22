@@ -2,15 +2,29 @@
   "name": "passport-runkeeper",
   "version": "0.1.0",
   "description": "RunKeeper authentication strategy for Passport.",
-  "author": "Jared Hanson <jaredhanson@gmail.com> (http://www.jaredhanson.net/)",
+  "author": { "name": "Jared Hanson", "email": "jaredhanson@gmail.com", "url": "http://www.jaredhanson.net/" },
   "repository": {
     "type": "git",
-    "url": "http://github.com/jaredhanson/passport-runkeeper.git"
+    "url": "git://github.com/jaredhanson/passport-runkeeper.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jaredhanson/passport-runkeeper/issues"
   },
   "main": "./lib/passport-runkeeper",
   "dependencies": {
-    "passport-oauth": ">= 0.1.0"
+    "pkginfo": "0.2.x",
+    "passport-oauth": "0.1.x"
+  },
+  "devDependencies": {
+    "vows": "0.6.x"
+  },
+  "scripts": {
+    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
   },
   "engines": { "node": ">= 0.4.0" },
+  "licenses": [ {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT" 
+  } ],
   "keywords": ["passport", "runkeeper", "auth", "authn", "authentication", "identity"]
 }
